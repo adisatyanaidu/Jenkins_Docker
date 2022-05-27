@@ -1,0 +1,24 @@
+pipeline {
+    agent {
+        docker { 
+            image 'postman/newman_ubuntu1404:2.1.2'
+        }
+    }
+    stages {
+        stage('MSA') {
+            steps {
+                sh 'newman -u https://www.getpostman.com/collections/aad2b2bce057f3e65a94 -r htmlextra --reporters cli,junit --reporter-junit-export "newman/myreport.xml;'
+            }
+        }
+    }
+    post {
+        success {
+            echo 'The Pipeline success :)'
+                    }
+        failure { 
+            script {
+                echo 'The Pipeline failed :('
+                            }
+        }
+    }
+}
