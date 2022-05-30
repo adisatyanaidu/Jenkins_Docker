@@ -5,10 +5,10 @@
 #CMD tail -f /dev/null
 
 FROM node:16-alpine
-LABEL maintainer="Postman Labs <help@postman.com>"
+#LABEL maintainer="Postman Labs <help@postman.com>"
 MAINTAINER paspnaidu@aol.com
 
-COPY . /python-test-calculator
+#COPY . /python-test-calculator
 ARG NEWMAN_VERSION
 
 # Set environment variables
