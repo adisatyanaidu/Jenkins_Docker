@@ -7,8 +7,9 @@ pipeline {
     stages {
         stage('MSA') {
             steps {
-                sh 'newman -u https://www.getpostman.com/collections/aad2b2bce057f3e65a94 -r htmlextra --reporters cli,junit --reporter-junit-export "newman/myreport.xml;'
-            }
+                /*sh 'newman -u https://www.getpostman.com/collections/aad2b2bce057f3e65a94 -r htmlextra --reporters cli,junit --reporter-junit-export "newman/myreport.xml;'*/
+            sh 'newman run May11.postman_collection.json -r html'
+           }
         }
     }
     post {
